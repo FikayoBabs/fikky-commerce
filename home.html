@@ -24,25 +24,10 @@
                HomeAppliances
             </div>
             <div class="nav-items">
-               <li><a href="#">Home</a></li>
-               <li><a href="#"> View items in AR <i class="fas fa-caret-down"></i></a>
-               <!-- <div class="dropdown__menu">
-                    <ul>
-                
-                    <li><a  href="#">electrickettle</a></li>
-                    <li> <a  href="#">fridge</a></li>
-                    <li><a  href="#">gas cylinder</a></li>
-                    <li><a  href="#">gas stove</a></li>
-                    <li><a href="#">led tv</a></li>
-                    <li><a href="#">microwave</a></li>
-                    <li><a  href="#">refridgerator</a></li>
-                    <li><a href="#">washing machine</a></li>
-                
-                  </ul>
-                </div>-->
-                
+               <li><a href="home.html">Home</a></li>
+               <li><a href="AR.html"> View items in AR </a>
                 </li>
-               <li><a href="#">account</a></li>
+               <li><a href="account.html">account</a></li>
                <div class="cart-btn">
                    <span>
                     <i class="fas fa-cart-plus"></i>
@@ -149,6 +134,10 @@
                     <h3>your total: $ <span class="cart-total">0</span> </h3>
                     <button class="clear-cart banner-btn">clear cart</button>
                 </div>
+                <div class="payment">
+                  <!--<button  type="submit" class="payment-button">--><a class="payment-button" href="checkout.html" >checkout</a>
+          <!--</button>-->
+                </div>
             </div>
         </div>
         
@@ -166,6 +155,9 @@
         </div>
       </footer>
     <!--end of footer-->
-  <script src="app.js"></script>  
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/app.js"></script>  
+  
+ 
 </body>
 </html>

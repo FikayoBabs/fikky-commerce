@@ -22,6 +22,7 @@
   nav .logo{
     color: #fff;
     font-size: 30px;
+    font-style: italic;
     font-weight: 600;
     letter-spacing: -1px;
   }
@@ -44,44 +45,7 @@
     color: #ff3d00;
   }
 
-  /* drop down
-  .dropdown__menu{
-display: block;
-position: absolute;
-left: 0;
-top: 100%;
-background-color: black;
-  }
-  .dropdown__menu ul {
-    display: block;
-    margin: 10px;
-  }
-  .dropdown__menu ul li {
-    width: 150px;
-    padding: 10px;
-  }
-  /* finish drop down*/
-  /* start drop down 
-  .dropdown-menu {
-    background-clip: padding-box;
-    background-color: #424242;
-    border: none;
-    border-radius: 0px;
-    box-shadow: none;
-    margin: 11px 0 0;
-    padding: 15px;
-  }
-  .dropdown-menu ul > li > a {
-    color: #fff;
-    padding: 5px 15px;
-  }
-  .dropdown-menu  li  a:hover,
-  .dropdown-menu  li  a:focus {
-    background-color: black;
-    color: #fff;
-  }
-
-  end of drop down*/
+  
   .nav-icon {
     font-size: 1.5rem;
   }
@@ -301,7 +265,7 @@ background-color: black;
   }
   .banner {
     text-align: center;
-    background: darkgrey;
+    background: rgba(255, 255, 255, 0.8);
     display: inline-block;
     padding: 2rem;
   }
@@ -328,6 +292,12 @@ background-color: black;
   }
   /*products*/
   .products {
+    /*display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    justify-content: center;*/
     padding: 4rem 0;
   }
   .section-title h2 {
@@ -345,6 +315,7 @@ background-color: black;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     grid-column-gap: 1.5rem;
     grid-row-gap: 2rem;
+    padding: 0rem 0;
   }
   .img-container {
     position: relative;
@@ -495,6 +466,30 @@ background-color: black;
       background-color:orangered;
   }
   
+  
+  .payment{
+    margin-top: 2rem;
+    letter-spacing: var(--mainSpacing);
+    text-align: center;
+    padding: 10px;
+  }
+
+  .payment-button{
+    padding: 1rem 3rem;
+    text-transform: uppercase;
+    letter-spacing: var(--mainSpacing);
+    font-size: 1rem;
+    background: lightblue;
+    color: var(--mainBlack);
+    border: 1px solid var(--primaryColor);
+    transition: var(--mainTransition);
+    cursor: pointer;
+  }
+
+  .payment-button:hover{
+    background: transparent;
+    color: var(--primaryColor);
+  }
   /* --------------- End of Cart ---------------- */
   
 
@@ -505,5 +500,444 @@ background-color: black;
     font-size: 14px;
     padding: 5px 0 20px ;
     text-align: center;
+    margin-top: 5%;
+    
 }
+.col-md-12{
+  margin-top: 20px;
+}
+.inner-content{
+  border-top: 1px solid #eee;
+  margin-top: 20px;
+}
+  /*-----sign up form--*/
+  .wrapper{
+    max-width: 500px;
+    margin: auto;
+    margin-top: 80px;
+    width: 100%;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 4px 10px 1px rgba(0,0,0,0.1);
+  }
+  .wrapper .title{
+    height: 90px;
+    background: gray;
+    border-radius: 5px 5px 0 0;
+    color: #fff;
+    font-size: 30px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .wrapper form{
+    padding: 30px 25px 25px 25px;
+  }
+  .wrapper form .row{
+    height: 45px;
+    margin-bottom: 15px;
+    position: relative;
+  }
+  .wrapper form .row input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    padding-left: 60px;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+  form .row input:focus{
+    border-color: #16a085;
+    box-shadow: inset 0px 0px 2px 2px rgba(26,188,156,0.25);
+  }
+  form .row input::placeholder{
+    color: #999;
+  }
+  .wrapper form .row i{
+    position: absolute;
+    width: 47px;
+    height: 100%;
+    color: #fff;
+    font-size: 18px;
+    background: gray;
+    border: 1px solid green;
+    border-radius: 5px 0 0 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   
+  .wrapper form .button input{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    padding-left: 0px;
+    background: gray;
+    border: 1px solid ;
+    cursor: pointer;
+  }
+  form .button input:hover{
+    background: orangered;
+  }
+  .wrapper form .signup-link{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 17px;
+  }
+  .wrapper form .register-link a{
+    color: orangered;
+    text-decoration: none;
+  }
+  form .register-link a:hover{
+    text-decoration: underline;
+  }
+/*--- end of sign up form--*/  
+/*--- registration form --*/
+.registration-wrapper{
+  max-width: 500px;
+  width: 100%;
+  background: #fff;
+  margin: 20px auto;
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.125);
+  padding: 30px;
+}
+
+.registration-wrapper .title{
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: orangered;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.registration-wrapper .form{
+  width: 100%;
+}
+
+.registration-wrapper .form .inputfield{
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.registration-wrapper .form .inputfield label{
+   width: 200px;
+   color: #757575;
+   margin-right: 10px;
+  font-size: 14px;
+}
+
+.registration-wrapper .form .inputfield .input,
+.registration-wrapper .form .inputfield .textarea{
+  width: 100%;
+  outline: none;
+  border: 1px solid #d5dbd9;
+  font-size: 15px;
+  padding: 8px 10px;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.registration-wrapper .form .inputfield .textarea{
+  width: 100%;
+  height: 125px;
+  resize: none;
+}
+
+.registration-wrapper .form .inputfield .custom_select{
+  position: relative;
+  width: 100%;
+  height: 37px;
+}
+
+.registration-wrapper .form .inputfield .custom_select:before{
+  content: "";
+  position: absolute;
+  top: 12px;
+  right: 10px;
+  border: 8px solid;
+  border-color: #d5dbd9 transparent transparent transparent;
+  pointer-events: none;
+}
+
+.registration-wrapper .form .inputfield .custom_select select{
+  -webkit-appearance: none;
+  -moz-appearance:   none;
+  appearance:        none;
+  outline: none;
+  width: 100%;
+  height: 100%;
+  border: 0px;
+  padding: 8px 10px;
+  font-size: 15px;
+  border: 1px solid #d5dbd9;
+  border-radius: 3px;
+}
+
+.registration-wrapper .form .inputfield .input:focus,
+.registration-wrapper .form .inputfield .textarea:focus,
+.registration-wrapper .form .inputfield .custom_select select:focus{
+  border: 1px solid orangered;
+}
+
+.registration-wrapper .form .inputfield p{
+   font-size: 14px;
+   color: #757575;
+}
+.registration-wrapper .form .inputfield .check{
+  width: 15px;
+  height: 15px;
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+.registration-wrapper .form .inputfield .check input[type="checkbox"]{
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+.registration-wrapper .form .inputfield .check .checkmark{
+  width: 15px;
+  height: 15px;
+  border: 1px solid orangered;
+  display: block;
+  position: relative;
+}
+.registration-wrapper .form .inputfield .check .checkmark:before{
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 2px;
+  width: 5px;
+  height: 2px;
+  border: 2px solid;
+  border-color: transparent transparent #fff #fff;
+  transform: rotate(-45deg);
+  display: none;
+}
+.registration-wrapper .form .inputfield .check input[type="checkbox"]:checked ~ .checkmark{
+  background: orangered;
+}
+
+.registration-wrapper .form .inputfield .check input[type="checkbox"]:checked ~ .checkmark:before{
+  display: block;
+}
+
+.registration-wrapper .form .inputfield .btn{
+  width: 100%;
+   padding: 8px 10px;
+  font-size: 15px; 
+  border: 0px;
+  background:  orangered;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 3px;
+  outline: none;
+}
+
+.registration-wrapper .form .inputfield .btn:hover{
+  background: gray;
+}
+
+.registration-wrapper .form .inputfield:last-child{
+  margin-bottom: 0;
+}
+
+@media (max-width:420px) {
+  .registration-wrapper .form .inputfield{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .registration-wrapper .form .inputfield label{
+    margin-bottom: 5px;
+  }
+  .registration-wrapper .form .inputfield.terms{
+    flex-direction: row;
+  }
+}
+/*--end of registration form--*/
+/* checkout start */
+
+.wrapper{
+  width: 100%;
+  padding: 10px;
+}
+
+.checkoutcontainer{
+  max-width: 500px;
+  height: auto;
+  margin: 50px auto;
+  background: #fff;
+  padding: 20px 40px 30px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  /*border-top: 7px solid #5f6c7d;*/
+}
+
+.title{
+  color: #5f6c7d;
+  font-size: 2em;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+.total{
+  color: #5f6c7d;
+  font-size: 1em;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 200;
+  margin-bottom: 20px;
+}
+.input-form{
+  margin-bottom: 20px;
+}
+
+.input-form .label{
+	  display: block;
+    font-size: 1em;
+    color: #212121;
+    text-transform: capitalize;
+    margin-bottom: 8px;
+}
+
+.input-form .items{
+  margin-bottom: 20px;
+}
+
+.section-1 .items .input,
+.section-2 .items .input,
+.section-3 .items .input{
+    background: transparent;
+    border: 2px solid #BDBDBD;
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    color: #212121;
+    border-radius: 3px;
+}
+
+.input-form .section-3{
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-form .section-3 .items{
+   width: 48%;
+}
+
+.btn{
+	background: #5f6c7d;
+	color: #fff;
+	font-size: 1.25em;	
+	padding: 10px 0;
+	text-align: center;
+	text-transform: uppercase;
+	border-radius: 5px;
+	cursor: pointer;
+	font-weight: bold;
+	letter-spacing: 2px;
+}
+
+.cvc{
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.cvc .tooltip{
+  color: #d4d4d4;
+  border: 2px solid #d4d4d4;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  text-align:center;
+  cursor: pointer;
+}
+
+.cvc .cvc-img{
+  position: absolute;
+  top: -300%;
+  right: 0;
+  background: #5f6c7d;
+  padding: 12px;
+  border-radius: 5px;
+  display: none;
+}
+
+.cvc .cvc-img img{
+  width: 100px;
+  height: auto;
+  display: block;
+}
+
+.cvc:hover .cvc-img{
+  display: block;
+}
+
+@media screen and (max-width: 460px){
+  .input-form .section-3{
+    flex-direction: column;
+  }
+  .input-form .section-3 .items{
+     width: 100%;
+  }
+  .input-form .items{
+    margin-bottom: 10px;
+  }
+
+  .input-form{
+    margin-bottom: 15px;
+  }
+  .title{
+    font-size: 1.5em;
+    margin-bottom: 15px;
+  }
+}
+/*checkout ends*/
+/*augmented css*/
+.augitems{
+  padding: 4rem 0;
+  /*padding: 0;*/
+}
+.augitems-title h2{
+  text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 5rem;
+    text-transform: capitalize;
+    letter-spacing: var(--mainSpacing);
+}
+.D-models{
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-column-gap: 1.5rem;
+  grid-row-gap: 2rem;
+  padding: 0.5rem 0;
+}
+.assets-container{
+  position: relative;
+    overflow: hidden;
+   /* width: 400px;
+        height: 600px;
+        margin: 0 auto;*/
+}
+.model{
+  display: block;
+    width: 80%;
+    min-height: 20rem;
+    transition: var(--mainTransition);
+    
+}
+
+/* augmented css ends */
