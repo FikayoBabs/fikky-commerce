@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>home appliances</title>
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <!---- font awesome-->
     <link 
      rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
@@ -78,94 +77,78 @@
             }
          </script>
           <!---banner item-->
-         <!--- <header class="hero">
+          <header class="hero">
             <div class="banner">
                   <h1 class="banner-title">Home Appliances Collection</h1>
                   <button class="banner-btn">Shop quality home appliances here!</button>
                 </div>
-          </header>-->
-<!--AR assests-->
-<section class="augitems" >
-<div class="augitems-title" >
- <h2> Augmented View Of Products</h2>
-</div>
-<div class="D-models">
-<!--single model-->
-<article class="models" >
-<div class="assets-container">
-    <model-viewer  class="model" src="./assets/fridge.glb" camera-controls auto-rotate ar  ios-src="./assets/fridge.usdz" ar-modes="webxr scene-viewer quick-look">
-        </model-viewer>
-        <h3>Fridge</h3>
-        
-</div>
-</article>
-<article class="models" >
-    <div class="assets-container">
-        <model-viewer class="model" src="./assets/electric kettle.glb" camera-controls auto-rotate ar  ios-src="./assets/electrickettle.usdz" ar-modes="webxr scene-viewer quick-look">
-            </model-viewer>
-            <h3>Electric kettle</h3>
-            
-    </div>
-    </article>
-    <article class="models" >
-        <div class="assets-container">
-            <model-viewer class="model" src="./assets/gas cylinder.glb" camera-controls auto-rotate ar  ios-src="./assets/gascylinder.usdz" ar-modes="webxr scene-viewer quick-look">
-                </model-viewer>
-                <h3>Gas cylinder</h3>
-                
-        </div>
-        </article>
-        <article class="models" >
-            <div class="assets-container">
-                <model-viewer class="model" src="./assets/gas stove.glb" camera-controls auto-rotate ar  ios-src="./assets/gasstove.usdz" ar-modes="webxr scene-viewer quick-look">
-                    </model-viewer>
-                    <h3>Gas stove</h3>
-                    
+          </header>
+         <!---products-->
+        <section class="products">
+            <div class="section-title">
+                <h2> our products</h2>
             </div>
-            </article>
-            <article class="models" >
-                <div class="assets-container">
-                    <model-viewer class="model" src="./assets/led tv.glb" camera-controls auto-rotate ar  ios-src="./assets/ledtv.usdz" ar-modes="webxr scene-viewer quick-look">
-                        </model-viewer>
-                        <h3>Led Tv</h3>
-                        
-                </div>
-                </article>
-                <article class="models" >
-                    <div class="assets-container">
-                        <model-viewer class="model" src="./assets/microwave.glb" camera-controls auto-rotate ar  ios-src="./assets/microwave.usdz" ar-modes="webxr scene-viewer quick-look">
-                            </model-viewer>
-                            <h3>Microwave</h3>
-                            
+            <div class="products-center">
+             <!--- single product-->
+                <article class="products">
+                    <div class="img-container">
+                        <img src="./images/electrickettle.jpg" alt="product" 
+                        class="product-img">
+                        <button class="bag-btn" data-id="1">
+                   <i class="fas fa-shopping-cart"></i>
+                   add to cart 
+                        </button>
                     </div>
-                    </article>
-                    <article class="models" >
-                        <div class="assets-container">
-                            <model-viewer class="model" src="./assets/refridgerator.glb" camera-controls auto-rotate ar  ios-src="./assets/refridgerator.usdz" ar-modes="webxr scene-viewer quick-look">
-                                </model-viewer>
-                                <h3>Refridgerator</h3>
-                                
-                        </div>
-                        </article>
-                        <article class="models" >
-    <div class="assets-container">
-        <model-viewer class="model" src="./assets/washing machine.glb" camera-controls auto-rotate ar  ios-src="./assets/washingmachine.usdz" ar-modes="webxr scene-viewer quick-look">
-            </model-viewer>
-            <h3>Washing Machine</h3>
-            
-    </div>
-    </article>
-</div>
-</section>
-<!--end of AR assests-->
-
-            
+                    <h3>electric kettle</h3>
+                    <h4>$10000</h4> 
+                </article> 
+                <!-- end of single product-->
+            </div>
+        </section>
+        <!---cart-->
+        <div class="cart-overlay">
+            <div class="cart">
+                <span class="close-cart">
+                    <i class="fas fa-window-close"></i>
+                </span>
+                <h2>Your cart</h2>
+                <div class="cart-content">
+                    <!---cart items-->
+        <div class="cart-item">
+           <!--- <img src="./images/electrickettle.jpg"
+            alt="product">
+            <div>
+                <h4> electric kettle</h4>
+                <h5>10,000</h5>
+                <span class="remove-item">remove</span>
+            </div>
+            <div>
+                <i class="fas fa-chevron-up"></i>
+                <p class="item-amount">1</p>
+                <i class="fas fa-chevron-down"></i>
+            </div>-->
+        </div> 
+        <!-- end of cart item-->
+                </div>
+                <div class="cart-footer">
+                    <h3>your total: $ <span class="cart-total">0</span> </h3>
+                    <button class="clear-cart banner-btn">clear cart</button>
+                </div>
+                <div class="payment">
+                  <!--<button  type="submit" class="payment-button">--><a class="payment-button" href="checkout.html" >checkout</a>
+          <!--</button>-->
+                </div>
+            </div>
+        </div>
+        
+       
      <!---footer-->   
-     <footer class="footer">
+    <footer class="footer">
         <div class="container">
           <div class="row">
             <div class="col-md-12">
               <a href="terms.html">terms and condition</a>
+              
               <div class="inner-content">
                 <p>Copyright © 2021 HomeAppliances  <a href="home.html">home appliances</a></p>
               </div>
@@ -175,7 +158,7 @@
       </footer>
     <!--end of footer-->
   <script src="/socket.io/socket.io.js"></script>
-  <!-- <script src="/js/app.js"></script>   -->
+  <script src="/js/app.js"></script>  
   
  
 </body>
