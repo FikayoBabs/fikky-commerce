@@ -1,5 +1,4 @@
 //variables
-
 const  socket = io();
 const searchForm = document.querySelector("#search-form");
 const searchFormInput = document.querySelector("#inputSearch");
@@ -12,28 +11,39 @@ const cartItems = document.querySelector('.cart-items');
 const cartTotal = document.querySelector('.cart-total');
 const cartContent = document.querySelector('.cart-content');
 const productsDOM = document.querySelector('.products-center');
-// cart 
+const checkoutbtn = document.querySelector('.payment-button');
+
+// cart
 let cart = [];
-
+let mItemTotal = 0;
 //register
+checkoutbtn.addEventListener('click',()=>{
+  cart.map(item =>{
+      mItemTotal += item.price * item.amount;
+      sessionStorage.setItem('t_price', parseFloat(mItemTotal.toFixed
+       (2)));
+   })
+    window.location = 'checkout.html';
+    // alert(mItemTotal + "gh");
+    const ui = new UI;
 
+    ui.clearCart();
+})
 
 //showing the price total in checkout
 var setPrice = ()=>{
-  document.getElementById("mtotal").innerHTML =  "Total :  " + sessionStorage.getItem("t_price")
-   const ui = new UI
-   let cartItems = cart.map(item => item.id);
-   console.log(cartItems)
-   cartItems.forEach(id => ui.removeItem(id));
-  
+  document.getElementById("mtotal").innerHTML =  "Total :  " + sessionStorage.getItem("t_price");
+  // mItemTotal = 0;
+  // alert(mItemTotal + "hrtr")
 
 }
 //clearing the cart after clicking on checkout
 var clearCatOncheckout = ()=>{
+
   //  document.getElementById("mtotal").innerHTML =  "Total :  " + sessionStorage.getItem("t_price")
-   const ui = new UI
-   let cartItems = cart.map(item => item.id);
-   cartItems.forEach(id => ui.removeItem(id));
+   // const ui = new UI
+   // let cartItems = cart.map(item => item.id);
+   // cartItems.forEach(id => ui.removeItem(id));
 }
 
 var registerUsers = ()=>{
@@ -76,17 +86,17 @@ const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecogni
 // <!-- <button type="button"><i class="fas fa-microphone"></i></button> -->
 if(SpeechRecognition) {
     console.log("Your Browser supports speech Recognition");
-    
+
     const recognition = new SpeechRecognition();
     recognition.continuous = true;
     // recognition.lang = "en-US";
-  
+
     searchForm.insertAdjacentHTML("beforeend", '<button id = "voiceSearch" type="button"><i class="fas fa-microphone"></i></button>');
     searchFormInput.style.paddingRight = "50px";
-  
+
     const micBtn = searchForm.querySelector("#voiceSearch");
     const micIcon = micBtn.firstElementChild;
-  
+
     micBtn.addEventListener("click", micBtnClick);
     function micBtnClick() {
       if(micIcon.classList.contains("fa-microphone")) { // Start Voice Recognition
@@ -96,7 +106,7 @@ if(SpeechRecognition) {
         recognition.stop();
       }
     }
-  
+
     recognition.addEventListener("start", startSpeechRecognition); // <=> recognition.onstart = function() {...}
     function startSpeechRecognition() {
       micIcon.classList.remove("fa-microphone");
@@ -104,7 +114,7 @@ if(SpeechRecognition) {
       searchFormInput.focus();
       alert("Voice activated, SPEAK");
     }
-  
+
     recognition.addEventListener("end", endSpeechRecognition); // <=> recognition.onend = function() {...}
     function endSpeechRecognition() {
       micIcon.classList.remove("fa-microphone-slash");
@@ -121,12 +131,12 @@ if(SpeechRecognition) {
       recognition.stop();
     //   alert("Speech recognition service disconnected");
     }
-    
+
     // textSeacrh things//
     searchForm.querySelector("#textSearch").addEventListener('click', (event) =>{
         event.preventDefault();
         if(searchFormInput.value != null ||searchFormInput.value != undefined ){
-           
+
             const ui = new UI()
             const products = new Products();
               // setup app
@@ -156,19 +166,23 @@ if(SpeechRecognition) {
         products.getProducts().then(products => {
             ui.displaySearchProducts(products,transcript.toLowerCase().trim());
             Storage.saveProducts(products);
+    }).then(() => {
+        ui.getBagButtons();
+        ui.cartLogic();
+
     });
       }
-      
-  
+
+
       // searchFormInput.value = transcript;
       // searchFormInput.focus();
       // setTimeout(() => {
       //   searchForm.submit();
       // }, 500);
     }
-    
+
     // info.textContent = 'Voice Commands: "stop recording", "reset input", "go"';
-    
+
   }
   else {
     console.log("Your Browser does not support speech Recognition");
@@ -191,9 +205,9 @@ async getProducts(){
         })
         return products
     } catch (error) {
-       console.log(error); 
+       console.log(error);
     }
-  
+
 }
 }
 //display products
@@ -201,29 +215,29 @@ class UI {
     displaySearchProducts(products,filter){
         let result = "";
         products.forEach(product => {
-           
+
           if(product.title.includes(filter) ){
             result += `
             <!--- single products -->
             <article class="products">
             <div class="img-container">
-                <img src=${product.image} alt="product" 
+                <img src=${product.image} alt="product"
                 class="product-img">
                 <button class="bag-btn" data-id=${product.id}>
            <i class="fas fa-shopping-cart"></i>
-           add to cart 
+           add to cart
                 </button>
             </div>
             <h3>${product.title}</h3>
-            <h4>$${product.price}</h4> 
-        </article> 
-        <!---end of single product -->  
+            <h4>$${product.price}</h4>
+        </article>
+        <!---end of single product -->
             `;
           }
-            
-           
-        
-           
+
+
+
+
         });
          productsDOM.innerHTML = result;
            }
@@ -232,27 +246,27 @@ class UI {
    displayProducts(products){
 let result = "";
 products.forEach(product => {
-   
+
         result += `
         <!--- single products -->
         <article class="products">
         <div class="img-container">
-            <img src=${product.image} alt="product" 
+            <img src=${product.image} alt="product"
             class="product-img">
             <button class="bag-btn" data-id=${product.id}>
        <i class="fas fa-shopping-cart"></i>
-       add to cart 
+       add to cart
             </button>
         </div>
         <h3>${product.title}</h3>
-        <h4>$${product.price}</h4> 
-    </article> 
-    <!---end of single product -->  
+        <h4>$${product.price}</h4>
+    </article>
+    <!---end of single product -->
         `;
-    
-   
 
-   
+
+
+
 });
  productsDOM.innerHTML = result;
    }
@@ -267,7 +281,7 @@ products.forEach(product => {
            button.innerText = "In Cart";
            button.disabled = true
        }
-       
+
            button.addEventListener('click', event =>{
         event.target.innerText = "In Cart";
         event.target.disabled = true;
@@ -285,7 +299,7 @@ products.forEach(product => {
           // show the cart
           this.showCart();
     });
-       
+
    });
    }
    setCartValues(cart){
@@ -293,13 +307,13 @@ products.forEach(product => {
        let itemsTotal = 0;
        cart.map(item =>{
            tempTotal += item.price * item.amount;
-        itemsTotal += item.amount;       
+        itemsTotal += item.amount;
         })
         cartTotal.innerText = parseFloat(tempTotal.toFixed
             (2))
-           cartItems.innerText = itemsTotal; 
-           sessionStorage.setItem('t_price', parseFloat(tempTotal.toFixed
-            (2)));
+           cartItems.innerText = itemsTotal;
+           // sessionStorage.setItem('t_price', parseFloat(tempTotal.toFixed
+           //  (2)));
         }
         addCartItem(item){
         const div = document.createElement('div');
@@ -320,7 +334,7 @@ products.forEach(product => {
             ${item.id}></i>
         </div>`;
         cartContent.appendChild(div);
-        
+
         }
         showCart(){
      cartOverlay.classList.add('transparentBcg');
@@ -332,14 +346,14 @@ products.forEach(product => {
          this.populateCart(cart);
          cartBtn.addEventListener('click',this.showCart);
          closeCartBtn.addEventListener('click',this.hideCart);
-     }   
+     }
      populateCart(cart){
          cart.forEach(item =>this.addCartItem(item));
      }
      hideCart(){
          cartOverlay.classList.remove("transparentBcg");
          cartDOM.classList.remove("showCart");
-     }   
+     }
      cartLogic(){
          // clear cart button
          clearCartBtn.addEventListener('click', () => {
@@ -357,13 +371,13 @@ products.forEach(product => {
         }
         else if(event.target.classList.contains("fa-chevron-up")){
         let addAmount = event.target;
-        let id = addAmount.dataset.id; 
+        let id = addAmount.dataset.id;
         let tempItem = cart.find(item => item.id===id);
         tempItem.amount = tempItem.amount + 1;
         Storage.saveCart(cart);
         this.setCartValues(cart);
-        addAmount.nextElementSibling.innerText = 
-        tempItem.amount;  
+        addAmount.nextElementSibling.innerText =
+        tempItem.amount;
     }
     else if (event.target.classList.contains
         ("fa-chevron-down")){
@@ -384,16 +398,17 @@ products.forEach(product => {
             }
         }
          });
-     }  
+     }
      clearCart(){
+
          let cartItems = cart.map(item => item.id);
          cartItems.forEach(id => this.removeItem(id));
-         console.log(cartContent.children);
 
+         console.log(cartContent.children);
          while(cartContent.children.length>0){
              cartContent.removeChild(cartContent.children[0])
-         } 
-         this.hideCart();    
+         }
+         this.hideCart();
         }
      removeItem(id){
          cart = cart.filter(item => item.id !==id);
@@ -430,7 +445,7 @@ class Storage{
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  
+
   const ui = new UI()
     const products = new Products();
       // setup app
@@ -440,11 +455,11 @@ document.addEventListener("DOMContentLoaded", () => {
         ui.displayProducts(products);
         socket.emit('product', { products });
         Storage.saveProducts(products);
-        
+
 })
 .then(() => {
     ui.getBagButtons();
     ui.cartLogic();
 
-}); 
+});
 });
